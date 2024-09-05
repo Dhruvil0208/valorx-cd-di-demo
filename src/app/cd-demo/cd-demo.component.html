@@ -1,0 +1,25 @@
+<app-parent></app-parent>
+
+<div>
+    <h2>Scenarios</h2>
+    <pre>
+      Scenario 1: Primitive Data Update:
+
+      Action: Click "Update Primitive Data" in the parent component.
+      Expected Behavior: The parent component will update and reflect the changes, but the child component, using OnPush, will not update because the primitive input value did not change the reference.
+
+      Scenario 2: Non-Primitive Data Update In-Place:
+      
+      Action: Click "Update Non-Primitive Data" in the parent component, modifying the value property of the nonPrimitiveData object.
+      Expected Behavior: The parent component will update the nonPrimitiveData property, but the child component will not reflect the changes as OnPush requires a reference change to detect updates.
+      
+      Scenario 3: Non-Primitive Data Update with Reference Change:
+      
+      Action: Update nonPrimitiveData by assigning a new object (e.g., this.nonPrimitiveData = {{'{'}} value: 'New Value' {{'}'}}).
+      Expected Behavior: The parent component's new reference will be detected by the child component due to the OnPush strategy, causing the child to reflect the updated data.
+      Scenario 4: Local Data Update in Child:
+      
+      Action: Click "Update Local Data" in the child component.
+      Expected Behavior: The local data in the child component will be updated and reflected immediately, demonstrating that local changes are not impacted by the OnPush strategy.
+    </pre>
+  </div>

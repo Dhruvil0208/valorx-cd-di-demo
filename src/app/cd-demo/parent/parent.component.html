@@ -1,0 +1,15 @@
+<div>
+    <h2>Parent Component (Default Strategy)</h2>
+    <button (click)="updatePrimitiveData()">Update Primitive Data</button>
+    <button (click)="updateNonPrimitiveData()">Update Non-Primitive Data</button>
+    <p>Primitive Data: {{ primitiveData }}</p>
+    <p>Non-Primitive Data: {{ nonPrimitiveData.value }}</p>
+  
+    <p>Primitive Data Update Count: {{ parentPrimitiveUpdateCount }}</p>
+    <p>Non-Primitive Data Update Count: {{ parentNonPrimitiveUpdateCount }}</p>
+  
+    <!-- Child component with OnPush strategy -->
+    <app-child [data]="nonPrimitiveData"></app-child>
+
+
+  </div>

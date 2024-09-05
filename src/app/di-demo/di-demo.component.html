@@ -1,0 +1,51 @@
+<div>
+    <h2>Example - 1</h2>
+    <h2>DI Demo Component</h2>
+    <h3>Service provided at Module Level</h3>
+    <span>Here consider di-demo component as root</span>
+    <div>Message: {{ serviceMessage }}</div>
+    <app-child-with-same-instance></app-child-with-same-instance>
+</div>
+
+
+<div>
+    <h2>Example - 2</h2>
+    <h2>DI Demo Component</h2>
+    <h3>Service provided at Module Level and also at child component level</h3>
+    <span>Here consider di-demo component as root</span>
+    <div>Message: {{ serviceMessage }}</div>
+    <app-child-with-different-instance></app-child-with-different-instance>
+</div>
+
+
+<div>
+    <h2>Explanation:</h2>
+    <pre>Behavior Explanation
+        Service Provided in Module (di-demo.module.ts):
+        
+        The DiDemoService is provided in the module injector. Hence, DiDemoComponent and all other components get the same instance of DiDemoSersve.
+        
+        Service Provided in Parent (child-with-different-instance.component.ts):
+        
+        The DiDemoService is provided at the ChildWithDifferentInstanceComponent level. Therefore, ChildWithDifferentInstanceComponent and DiDemoComponent will have different instance. 
+
+
+        Service Provided in Root (i.e Injectable: root, not done in this example):
+        
+        If you were to provide the service in the root, it would create instance of DiDemoService common for all components across the application.
+
+
+        Visualizing the Service Instance
+        When you run the above code:
+        
+        DiDemoComponent will log the service message set by default in service.
+        ChildWithSameInstanceComponent will log the same message as that of DiDemoComponent.
+
+
+        ChildWithDifferentInstanceComponent will log the different message from DiDemoComponent as it has it's own instance of DiDemoService.
+
+        To see the effect of providing the service at different levels, you could modify the DiDemoService instance in one component and observe how it affects other components:
+        
+        If you modify the message in DiDemoComponent, the ChildWithSameInstanceComponent will see the updated message because they share the same DiDemoService instance.
+        If you provided DiDemoService again in Root, and nowhere else than all the components will have the same message as they all share only one instance.</pre>
+</div>
